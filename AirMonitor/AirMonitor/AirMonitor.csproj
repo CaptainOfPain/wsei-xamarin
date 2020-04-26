@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="6.0.0" />
+    <PackageReference Include="built.io.Android.dll" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
@@ -18,7 +22,6 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Controls\" />
     <Folder Include="Styles\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
@@ -26,5 +29,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Converters\StringFormatConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="config.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v10.0\Mono.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

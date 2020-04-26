@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AirMonitor.Models;
+using AirMonitor.Services.AirlyApiService;
+using AirMonitor.ViewModels;
 using Xamarin.Forms;
 
 namespace AirMonitor.Views
@@ -13,9 +16,14 @@ namespace AirMonitor.Views
     [DesignTimeVisible(false)]
     public partial class DetailsPage : ContentPage
     {
-        public DetailsPage()
+        private DetailsViewModel viewModel;
+        public DetailsPage(Installation installation)
         {
             InitializeComponent();
+            viewModel = new DetailsViewModel(new MeasurementsService());
+            viewModel.Installation = installation;
+            viewModel.GetMeasurementInfoAsync().GetAwaiter();
+            BindingContext = viewModel;
         }
 
         private void Help_Clicked(object sender, EventArgs e)

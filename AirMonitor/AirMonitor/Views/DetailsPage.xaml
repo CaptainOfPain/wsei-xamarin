@@ -10,9 +10,6 @@
              xmlns:converters="clr-namespace:AirMonitor.Converters"
              Title="Details Page"
              Style="{StaticResource DetailsPageStyle}">
-    <ContentPage.BindingContext>
-        <viewModels:DetailsViewModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ValueToPercentConverter x:Key="ValueToPercent"/>

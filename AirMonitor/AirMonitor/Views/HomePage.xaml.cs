@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AirMonitor.Services.AirlyApiService;
 using AirMonitor.ViewModels;
 using Xamarin.Forms;
 
@@ -11,7 +12,12 @@ namespace AirMonitor.Views
         {
             InitializeComponent();
 
-            BindingContext = new HomeViewModel(Navigation);
+            BindingContext = new HomeViewModel(Navigation, new InstallationsService());
+        }
+
+        private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ((HomeViewModel)BindingContext).GoToDetailsCommand.Execute(e);
         }
     }
 }
